@@ -19,7 +19,7 @@ signUrl = "https://bbs-api.mihoyo.com/apihub/sapi/signIn?gids={}"  # post
 listUrl = "https://bbs-api.mihoyo.com/post/api/getForumPostList?forum_id={}&is_good=false&is_hot=false&page_size=20&sort_type=1"
 detailUrl = "https://bbs-api.mihoyo.com/post/api/getPostFull?post_id={}"
 shareUrl = "https://bbs-api.mihoyo.com/apihub/api/getShareConf?entity_id={}&entity_type=1"
-voteUrl = "https://bbs-api.mihoyo.com/apihub/sapi/upvotePost"  # post json
+voteUrl = "https://bbs-api.mihoyo.com/apihub/sapi/upvotePost"  # post json 
 
 """
 分区编号

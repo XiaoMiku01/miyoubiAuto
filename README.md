@@ -1,4 +1,4 @@
-# miyoubiAuto
+# miyoubiAuto 
 米游社每日米游币自动化Python脚本(务必使用Python3)
 
 ### 第三方库
