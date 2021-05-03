@@ -13,7 +13,7 @@ client_type = "2"  # 1:ios 2:android
 api
 """
 cookieUrl = "https://webapi.account.mihoyo.com/Api/cookie_accountinfo_by_loginticket?login_ticket={}"
-cookieUrl2 = "https://bbs-api.mihoyo.com/auth/api/getMultiTokenByLoginTicket?login_ticket={}&token_types=3&uid={}"
+cookieUrl2 = "https://api-takumi.mihoyo.com/auth/api/getMultiTokenByLoginTicket?login_ticket={}&token_types=3&uid={}"
 signUrl = "https://bbs-api.mihoyo.com/apihub/sapi/signIn?gids={}"  # post
 listUrl = "https://bbs-api.mihoyo.com/post/api/getForumPostList?forum_id={}&is_good=false&is_hot=false&page_size=20&sort_type=1"
 detailUrl = "https://bbs-api.mihoyo.com/post/api/getPostFull?post_id={}"
