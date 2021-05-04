@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 import random
 import hashlib
@@ -6,11 +7,21 @@ import json
 import string
 import sys
 import os
+import logging
 
 from Global import *
 
 PATH = os.path.dirname(os.path.realpath(__file__))
 
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%Y-%m-%dT%H:%M:%S')
+
+
+log = logger = logging
 def md5(text):
     """
     md5加密
@@ -63,15 +74,14 @@ def getCookie(cookie):
         return [0, "cookie中没有'login_ticket'字段,请重新登录米游社，重新抓取cookie!"]
 
 
-def loadJson():
+def loadJson(c0):
     try:
         with open(f"{PATH}/cookie.json", "r") as f:
             data = json.load(f)
             f.close()
-            print("载入文件成功！")
+            log.info("载入文件成功！")
             return data["Cookie"]
     except:
-        c0 = mysCookie
         c = getCookie(c0)
         if c[0]:
             data = {"Cookie0": c0, "Cookie": c[1]}
@@ -84,8 +94,8 @@ def loadJson():
 
 
 class miYouBi:
-    def __init__(self):
-        self.Cookie = loadJson()
+    def __init__(self,):
+        self.Cookie = loadJson(mysCookie)
         self.headers = {
             "DS": DSGet(),
             "x-rpc-client_type": client_type,
@@ -103,15 +113,15 @@ class miYouBi:
         self.articleList = self.getList()
 
     def signIn(self):
-        print("正在签到......")
+        log.info("正在签到......")
         for i in gameList:
             req = requests.post(url=signUrl.format(i["id"]), cookies=self.Cookie, headers=self.headers)
             data = json.loads(req.text)
             if "err" not in data["message"]:
-                print(i["name"], data["message"])
+                log.info(str(i["name"]+ data["message"]))
                 time.sleep(2)
             else:
-                print("签到失败，你的cookie可能已过期，请重新设置cookie。")
+                log.info("签到失败，你的cookie可能已过期，请重新设置cookie。")
                 with open(f"{PATH}/cookie.json", "w") as f:
                     f.write('')
                     f.close()
@@ -119,41 +129,42 @@ class miYouBi:
 
     def getList(self):
         List = []
-        print("正在获取帖子列表......")
+        log.info("正在获取帖子列表......")
         for i in gameList:
             req = requests.get(url=listUrl.format(i["forumId"]), headers=self.headers)
             data = json.loads(req.text)
             for n in range(10):
                 List.append([data["data"]["list"][n]["post"]["post_id"], data["data"]["list"][n]["post"]["subject"]])
-            print("已获取{}个帖子".format(len(List)))
+            log.info("已获取{}个帖子".format(len(List)))
             time.sleep(2)
         return List
 
     def readArticle(self):
-        print("正在看帖......")
+        log.info("正在看帖......")
         for i in range(3):
             req = requests.get(url=detailUrl.format(self.articleList[i][0]), cookies=self.Cookie, headers=self.headers)
             data = json.loads(req.text)
             if data["message"] == "OK":
-                print("看帖：{} 成功".format(self.articleList[i][1]))
+                log.info("看帖：{} 成功".format(self.articleList[i][1]))
             time.sleep(2)
 
     def upVote(self):
-        print("正在点赞......")
+        log.info("正在点赞......")
         for i in range(5):
             req = requests.post(url=voteUrl, cookies=self.Cookie, headers=self.headers,
                                 json={"post_id": self.articleList[i][0], "is_cancel": False})
             data = json.loads(req.text)
             if data["message"] == "OK":
-                print("点赞：{} 成功".format(self.articleList[i][1]))
+                
+                log.info("点赞：{} 成功".format(self.articleList[i][1]))
             time.sleep(2)
 
     def share(self):
-        print("正在分享......")
+        log.info("正在分享......")
         req = requests.get(url=shareUrl.format(self.articleList[0][0]), cookies=self.Cookie, headers=self.headers)
         data = json.loads(req.text)
         if data["message"] == "OK":
-            print("分享：{} 成功".format(self.articleList[0][1]))
+            log.info("分享：{} 成功".format(self.articleList[0][1]))
 
 
 if __name__ == '__main__':
@@ -161,4 +172,4 @@ if __name__ == '__main__':
     a.readArticle()
     a.upVote()
     a.share()
-    print("任务全部完成")
+    log.info("任务全部完成")
