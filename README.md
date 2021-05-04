@@ -32,7 +32,7 @@ pip3 install requests
 4. 控制台粘贴代码并运行，获得类似`Cookie:xxxxxx`的输出信息
 5. `xxxxxx`部分即为所需复制的 Cookie，点击确定复制
 
-###部署方法--腾讯云函数版
+### 部署方法--腾讯云函数版
 
 1. 下载项目源码和[压缩包](https://github.com/XiaoMiku01/miyoubiAuto/releases/tag/1.1)
 
