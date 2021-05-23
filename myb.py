@@ -58,11 +58,11 @@ def getCookie(cookie):
                 Cookie["login_ticket"] = i.split("=")[1]
                 break
         req = requests.get(url=cookieUrl.format(Cookie["login_ticket"]))
-        data = json.loads(req.text)
+        data = json.loads(req.text.encode('utf-8'))
         if "成功" in data["data"]["msg"]:
             Cookie["stuid"] = str(data["data"]["cookie_info"]["account_id"])
             req = requests.get(url=cookieUrl2.format(Cookie["login_ticket"], Cookie["stuid"]))
-            data = json.loads(req.text)
+            data = json.loads(req.text.encode('utf-8'))
             Cookie["stoken"] = data["data"]["list"][0]["token"]
             print("登录成功！")
             return [1, Cookie]
@@ -116,7 +116,7 @@ class miYouBi:
         log.info("正在签到......")
         for i in gameList:
             req = requests.post(url=signUrl.format(i["id"]), cookies=self.Cookie, headers=self.headers)
-            data = json.loads(req.text)
+            data = json.loads(req.text.encode('utf-8'))
             if "err" not in data["message"]:
                 log.info(str(i["name"]+ data["message"]))
                 time.sleep(2)
@@ -132,7 +132,7 @@ class miYouBi:
         log.info("正在获取帖子列表......")
         for i in gameList:
             req = requests.get(url=listUrl.format(i["forumId"]), headers=self.headers)
-            data = json.loads(req.text)
+            data = json.loads(req.text.encode('utf-8'))
             for n in range(10):
                 List.append([data["data"]["list"][n]["post"]["post_id"], data["data"]["list"][n]["post"]["subject"]])
             log.info("已获取{}个帖子".format(len(List)))
@@ -143,7 +143,7 @@ class miYouBi:
         log.info("正在看帖......")
         for i in range(3):
             req = requests.get(url=detailUrl.format(self.articleList[i][0]), cookies=self.Cookie, headers=self.headers)
-            data = json.loads(req.text)
+            data = json.loads(req.text.encode('utf-8'))
             if data["message"] == "OK":
                 log.info("看帖：{} 成功".format(self.articleList[i][1]))
             time.sleep(2)
@@ -153,7 +153,7 @@ class miYouBi:
         for i in range(5):
             req = requests.post(url=voteUrl, cookies=self.Cookie, headers=self.headers,
                                 json={"post_id": self.articleList[i][0], "is_cancel": False})
-            data = json.loads(req.text)
+            data = json.loads(req.text.encode('utf-8'))
             if data["message"] == "OK":
                 
                 log.info("点赞：{} 成功".format(self.articleList[i][1]))
@@ -162,7 +162,7 @@ class miYouBi:
     def share(self):
         log.info("正在分享......")
         req = requests.get(url=shareUrl.format(self.articleList[0][0]), cookies=self.Cookie, headers=self.headers)
-        data = json.loads(req.text)
+        data = json.loads(req.text.encode('utf-8'))
         if data["message"] == "OK":
             log.info("分享：{} 成功".format(self.articleList[0][1]))
 

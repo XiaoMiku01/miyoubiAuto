@@ -1,6 +1,6 @@
 # miyoubiAuto 
-米游社每日米游币自动化Python脚本(务必使用Python3)
-
+米游社每日米游币自动化Python脚本(务必使用Python3)  
+## 注意：禁止在B站、贴吧、或各大论坛大肆传播！
 ### 第三方库
 
 ```shell
