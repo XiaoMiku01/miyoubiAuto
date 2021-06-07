@@ -136,7 +136,7 @@ class miYouBi:
             for n in range(10):
                 List.append([data["data"]["list"][n]["post"]["post_id"], data["data"]["list"][n]["post"]["subject"]])
             log.info("已获取{}个帖子".format(len(List)))
-            time.sleep(2)
+            time.sleep(random.randint(4,20))
         return List
 
     def readArticle(self):
@@ -146,7 +146,7 @@ class miYouBi:
             data = json.loads(req.text.encode('utf-8'))
             if data["message"] == "OK":
                 log.info("看帖：{} 成功".format(self.articleList[i][1]))
-            time.sleep(2)
+            time.sleep(random.randint(4,60))
 
     def upVote(self):
         log.info("正在点赞......")
@@ -157,7 +157,7 @@ class miYouBi:
             if data["message"] == "OK":
                 
                 log.info("点赞：{} 成功".format(self.articleList[i][1]))
-            time.sleep(2)
+            time.sleep(random.randint(4,60))
 
     def share(self):
         log.info("正在分享......")
