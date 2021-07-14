@@ -1,11 +1,9 @@
 # miyoubiAuto 
+Original project by XiaoMiku01's project [miyoubiAuto](https://github.com/XiaoMiku01/miyoubiAuto).
+
 米游社每日米游币自动化Python脚本(务必使用Python3)  
+
 ## 注意：禁止在B站、贴吧、或各大论坛大肆传播！
-#### 小引一波 
-推荐关注几个非常可爱有趣的女孩！ 
-欢迎B站搜索:  
-[@嘉然今天吃什么](https://space.bilibili.com/672328094/)&emsp;[@向晚大魔王](https://space.bilibili.com/672346917/)&emsp;&emsp;[@乃琳Queen](https://space.bilibili.com/672342685/)&emsp;&emsp;&emsp;[@贝拉kira](https://space.bilibili.com/672353429/)&emsp;&emsp;&emsp;[@珈乐Carol](https://space.bilibili.com/351609538/)</br>
-<img src="https://i2.hdslb.com/bfs/face/d399d6f5cf7943a996ae96999ba3e6ae2a2988de.jpg@128w_128h_1o.webp" /><img src="https://i0.hdslb.com/bfs/face/566078c52b408571d8ae5e3bcdf57b2283024c27.jpg@128w_128h_1o.webp" /><img src="https://i1.hdslb.com/bfs/face/8895c87082beba1355ea4bc7f91f2786ef49e354.jpg@128w_128h_1o.webp" /><img src="https://i2.hdslb.com/bfs/face/668af440f8a8065743d3fa79cfa8f017905d0065.jpg@128w_128h_1o.webp" /><img src="https://i1.hdslb.com/bfs/face/a7fea00016a8d3ffb015b6ed8647cc3ed89cbc63.jpg@128w_128h_1o.webp" />
 ### 第三方库
 
 ```shell
@@ -62,5 +60,5 @@ pip3 install requests
 10. 触发器配置-自己定义时间([Cron表达式文档](https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8F))
 11. 完成-立即转跳-函数管理-函数代码
 12. 点击部署-部署成功后点击测试-耐心等待返回结果-观看返回日志是否成功(中文可能出现编码问题，不过无伤大雅)
-  ![___C9_@CUSV_3`82A95I9PV.png](https://i.loli.net/2021/05/05/vHtBGqXRLfQ2r6o.png)
+    ![___C9_@CUSV_3`82A95I9PV.png](https://i.loli.net/2021/05/05/vHtBGqXRLfQ2r6o.png)
     ![QQ截图20210505034758.png](https://i.loli.net/2021/05/05/xbKjnrm5g2qJEMN.png)

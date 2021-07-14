@@ -2,7 +2,6 @@
 """
 在下面设置你的米游社Cookie
 """
-mysCookie = ''
 """
 以下内容不要改！！！
 """
@@ -25,30 +24,30 @@ voteUrl = "https://bbs-api.mihoyo.com/apihub/sapi/upvotePost"  # post json
 分区编号
 """
 gameList = [
-    {
-        "id": "1",
-        "forumId": "1",
-        "name": "崩坏3",
-        "url": "https://bbs.mihoyo.com/bh3/"
-    },
+    # {
+    #     "id": "1",
+    #     "forumId": "1",
+    #     "name": "崩坏3",
+    #     "url": "https://bbs.mihoyo.com/bh3/"
+    # },
     {
         "id": "2",
         "forumId": "26",
         "name": "原神",
         "url": "https://bbs.mihoyo.com/ys/"
     },
-    {
-        "id": "3",
-        "forumId": "30",
-        "name": "崩坏2",
-        "url": "https://bbs.mihoyo.com/bh2/"
-    },
-    {
-        "id": "4",
-        "forumId": "37",
-        "name": "未定事件簿",
-        "url": "https://bbs.mihoyo.com/wd/"
-    },
+    # {
+    #     "id": "3",
+    #     "forumId": "30",
+    #     "name": "崩坏2",
+    #     "url": "https://bbs.mihoyo.com/bh2/"
+    # },
+    # {
+    #     "id": "4",
+    #     "forumId": "37",
+    #     "name": "未定事件簿",
+    #     "url": "https://bbs.mihoyo.com/wd/"
+    # },
     {
         "id": "5",
         "forumId": "34",
