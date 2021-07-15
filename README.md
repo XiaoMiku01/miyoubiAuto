@@ -1,6 +1,15 @@
 # miyoubiAuto 
 Original project by XiaoMiku01's project [miyoubiAuto](https://github.com/XiaoMiku01/miyoubiAuto).
 
+原作者停止维护该项目，现绝赞练手中
+
+TODO:
+
+- [ ] 彻底修复标题乱码问题
+- [ ] 更新2.9.0客户端salt
+
+----
+
 米游社每日米游币自动化Python脚本(务必使用Python3)  
 
 ## 注意：禁止在B站、贴吧、或各大论坛大肆传播！
