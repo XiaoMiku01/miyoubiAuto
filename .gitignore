@@ -1,2 +1,5 @@
 
 cookie.json
+__pycache__
+.DS_Store
+.idea

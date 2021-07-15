@@ -2,11 +2,12 @@
 """
 在下面设置你的米游社Cookie
 """
+mysCookie = ''
 """
 以下内容不要改！！！
 """
-mysVersion = "2.7.0"
-salt = "fd3ykrh7o1j54g581upo1tvpam0dsgtf"  # 米游社2.7.0版本安卓客户端salt值
+mysVersion = "2.8.0"
+salt = "dmq2p7ka6nsu0d3ev6nex4k1ndzrnfiy"  # 米游社2.8.0版本安卓客户端salt值 -- https://github.com/y1ndan/genshinhelper
 client_type = "2"  # 1:ios 2:android
 
 """
