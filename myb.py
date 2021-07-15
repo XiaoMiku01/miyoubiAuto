@@ -8,20 +8,20 @@ import string
 import sys
 import os
 import logging
+import uuid
 
 from Global import *
 
 PATH = os.path.dirname(os.path.realpath(__file__))
-
-
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S')
 
-
 log = logger = logging
+
+
 def md5(text):
     """
     md5加密
@@ -94,17 +94,16 @@ def loadJson(c0):
 
 
 class miYouBi:
-    def __init__(self,):
+    def __init__(self, ):
         self.Cookie = loadJson(mysCookie)
         self.headers = {
             "DS": DSGet(),
             "x-rpc-client_type": client_type,
             "x-rpc-app_version": mysVersion,
-            "x-rpc-sys_version": "6.0.1",
             "x-rpc-channel": "miyousheluodi",
-            "x-rpc-device_id": randomStr(20) + randomStr(12),
+            "x-rpc-device_id": str(uuid.uuid3(uuid.NAMESPACE_URL, str(self.Cookie))).replace('-', '').upper(),
             "x-rpc-device_name": randomStr(random.randint(1, 10)),
-            "x-rpc-device_model": "Mi 10",
+            "x-rpc-device_model": "Mi 9",
             "Referer": "https://app.mihoyo.com",
             "Host": "bbs-api.mihoyo.com",
             "User-Agent": "okhttp/4.8.0"
@@ -118,8 +117,8 @@ class miYouBi:
             req = requests.post(url=signUrl.format(i["id"]), cookies=self.Cookie, headers=self.headers)
             data = json.loads(req.text.encode('utf-8'))
             if "err" not in data["message"]:
-                log.info(str(i["name"]+ data["message"]))
-                time.sleep(2)
+                log.info(str(i["name"] + data["message"]))
+                time.sleep(random.randint(4, 20))
             else:
                 log.info("签到失败，你的cookie可能已过期，请重新设置cookie。")
                 with open(f"{PATH}/cookie.json", "w") as f:
@@ -136,7 +135,7 @@ class miYouBi:
             for n in range(10):
                 List.append([data["data"]["list"][n]["post"]["post_id"], data["data"]["list"][n]["post"]["subject"]])
             log.info("已获取{}个帖子".format(len(List)))
-            time.sleep(random.randint(4,20))
+            time.sleep(random.randint(4, 20))
         return List
 
     def readArticle(self):
@@ -146,7 +145,7 @@ class miYouBi:
             data = json.loads(req.text.encode('utf-8'))
             if data["message"] == "OK":
                 log.info("看帖：{} 成功".format(self.articleList[i][1]))
-            time.sleep(random.randint(4,60))
+            time.sleep(random.randint(4, 60))
 
     def upVote(self):
         log.info("正在点赞......")
@@ -155,9 +154,8 @@ class miYouBi:
                                 json={"post_id": self.articleList[i][0], "is_cancel": False})
             data = json.loads(req.text.encode('utf-8'))
             if data["message"] == "OK":
-                
                 log.info("点赞：{} 成功".format(self.articleList[i][1]))
-            time.sleep(random.randint(4,60))
+            time.sleep(random.randint(4, 60))
 
     def share(self):
         log.info("正在分享......")

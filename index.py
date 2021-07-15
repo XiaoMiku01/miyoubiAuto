@@ -4,6 +4,7 @@ import random
 from myb import miYouBi, getCookie, DSGet, randomStr
 from Global import *
 import sys
+import uuid
 
 
 class mybCloud(miYouBi):
@@ -13,18 +14,16 @@ class mybCloud(miYouBi):
             "DS": DSGet(),
             "x-rpc-client_type": client_type,
             "x-rpc-app_version": mysVersion,
-            "x-rpc-sys_version": "6.0.1",
             "x-rpc-channel": "miyousheluodi",
-            "x-rpc-device_id": randomStr(20) + randomStr(12),
+            "x-rpc-device_id": str(uuid.uuid3(uuid.NAMESPACE_URL, str(self.Cookie))).replace('-', '').upper(),
             "x-rpc-device_name": randomStr(random.randint(1, 10)),
-            "x-rpc-device_model": "Mi 10",
+            "x-rpc-device_model": "Mi 9",
             "Referer": "https://app.mihoyo.com",
             "Host": "bbs-api.mihoyo.com",
             "User-Agent": "okhttp/4.8.0"
         }
         self.signIn()
         self.articleList = self.getList()
-
 
 
 def main_handler(event, context):
