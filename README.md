@@ -5,8 +5,8 @@ Original project by XiaoMiku01's project [miyoubiAuto](https://github.com/XiaoMi
 
 TODO:
 
-- [ ] 彻底修复标题乱码问题
-- [ ] 更新2.9.0客户端salt
+- [x] 彻底修复标题乱码问题
+- [x] 更新2.9.0客户端salt
 
 ----
 
