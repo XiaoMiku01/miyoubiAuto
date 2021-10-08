@@ -1,5 +1,6 @@
 # miyoubiAuto 
 米游社每日米游币自动化Python脚本(务必使用Python3)  
+10.8更新：更换cookie的获取地址
 ## 注意：禁止在B站、贴吧、或各大论坛大肆传播！
 #### 小引一波 
 推荐关注几个非常可爱有趣的女孩！ 
@@ -9,40 +10,47 @@
 ### 第三方库
 
 ```shell
+pip install requests
+或
 pip3 install requests
 ```
 ### 食用方法
  1.下载源码  
  2.在Global.py中设置米游社Cookie  
  3.运行myb.py  
+ 本地第一次运行时会自动生产一个文件储存cookie，请勿删除
  ```shell
  python3 myb.py
+ 或
+ python myb.py
  ```
 #### 当前仅支持单个账号！  
 
 ###  获取Cookie方法
 
 
-1. 浏览器**无痕模式**打开 [https://bbs.mihoyo.com/ys/](https://bbs.mihoyo.com/ys/) ，登录账号
+1. 浏览器**无痕模式**打开 [http://user.mihoyo.com/](http://user.mihoyo.com/) ，登录账号
 2. 按`F12`，打开`开发者工具`，找到并点击`Network`
 3. 按`F5`刷新页面，按下图复制 Cookie：
 
-![How to get mys cookie](https://i.loli.net/2020/10/28/TMKC6lsnk4w5A8i.png)
+![How to get mys cookie](http://i0.hdslb.com/bfs/album/95cbe5bc1886df3886045c92f5a3583ab733d8ab.png)
 
 当触发`Debugger`时，可尝试按`Ctrl + F8`关闭，然后再次刷新页面，最后复制 Cookie。也可以使用另一种方法：
 
 1. 复制代码 `var cookie=document.cookie;var ask=confirm('Cookie:'+cookie+'\n\nDo you want to copy the cookie to the clipboard?');if(ask==true){copy(cookie);msg=cookie}else{msg='Cancel'}`
-2. 浏览器**无痕模式**打开 [https://bbs.mihoyo.com/ys/](https://bbs.mihoyo.com/ys/) ，登录账号
+2. 浏览器**无痕模式**打开 [http://user.mihoyo.com/](http://user.mihoyo.com/) ，登录账号
 3. 按`F12`，打开`开发者工具`，找到并点击`Console`
 4. 控制台粘贴代码并运行，获得类似`Cookie:xxxxxx`的输出信息
 5. `xxxxxx`部分即为所需复制的 Cookie，点击确定复制
 
-### 部署方法--腾讯云函数版
+### 部署方法--腾讯云函数版（推荐！）
 
 1. 下载项目源码和[压缩包](https://github.com/XiaoMiku01/miyoubiAuto/releases/tag/1.1)
 
 2. 进入项目文件夹打开命令行执行以下命令
    ```shell
+   python index.py "xxxxxxx"
+   或
    python3 index.py "xxxxxxx"
    ```
    xxxxxxx为通过上面方式或取得米游社cookie  
