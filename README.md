@@ -72,3 +72,13 @@ pip3 install requests
 12. 点击部署-部署成功后点击测试-耐心等待返回结果-观看返回日志是否成功(中文可能出现编码问题，不过无伤大雅)
   ![___C9_@CUSV_3`82A95I9PV.png](https://i.loli.net/2021/05/05/vHtBGqXRLfQ2r6o.png)
     ![QQ截图20210505034758.png](https://i.loli.net/2021/05/05/xbKjnrm5g2qJEMN.png)
+
+
+### 部署方法-docker运行
+1. 下载源码
+2. 
+```shell
+docker build -t miyoubi-auto <源码的路径>
+docker run -it -d --name miyoubi-auto -e MYS_COOKIE="填米游社Cookie" miyoubi-auto
+docker logs -f miyoubi-auto
+```
