@@ -63,7 +63,7 @@ pip3 install requests
 4. 登录[腾讯云函数官网](https://cloud.tencent.com/product/scf)  
 5. 选择函数服务-新建-自定义创建
 6. 函数名称随意-地区随意-运行环境Python3.6
-7. 提交方法:上次本地zip包-执行方法不要改-函数代码上传刚刚下载的压缩包
+7. 提交方法:上传本地zip包-执行方法不要改-函数代码上传刚刚下载的压缩包
 8. 高级配置-环境配置-执行超时时间300秒
 9. 环境变量key填**mysCookie**(注意大小写),value填刚刚第3步复制的内容(注意括号也要复制)
       ![QQ截图20210505033548.png](https://i.loli.net/2021/05/05/HjrMEuYvqCVxgJb.png)
