@@ -6,8 +6,8 @@ mysCookie = ''
 """
 以下内容不要改！！！
 """
-mysVersion = "2.7.0"
-salt = "fd3ykrh7o1j54g581upo1tvpam0dsgtf"  # 米游社2.7.0版本安卓客户端salt值
+mysVersion = "2.34.1"
+salt = "z8DRIUjNDT7IT5IZXvrUAxyupA1peND9"  # 米游社2.7.0版本安卓客户端salt值
 client_type = "2"  # 1:ios 2:android
 
 """
