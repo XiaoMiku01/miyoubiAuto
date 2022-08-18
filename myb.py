@@ -49,6 +49,15 @@ def DSGet():
     return "{},{},{}".format(i, r, c)
 
 
+def DSGet2(q: str="", b: str="") -> str:
+    n = salt2
+    i = str(int(time.time()))
+    r = str(random.randint(100001, 200000))
+    add = f'&b={b}&q={q}'
+    c = md5("salt=" + n + "&t=" + i + "&r=" + r + add)
+    return f"{i},{r},{c}"
+
+
 def getCookie(cookie):
     Cookie = {}
     if "login_ticket" in cookie:
@@ -114,8 +123,11 @@ class miYouBi:
 
     def signIn(self):
         log.info("正在签到......")
+        header = {}
+        header.update(self.headers)
         for i in gameList:
-            req = requests.post(url=signUrl.format(i["id"]), cookies=self.Cookie, headers=self.headers)
+            header["DS"] = DSGet2("", json.dumps({"gids": i["id"]}))
+            req = requests.post(url=signUrl, json={"gids": i["id"]}, cookies=self.Cookie, headers=header)
             data = json.loads(req.text.encode('utf-8'))
             if "err" not in data["message"]:
                 log.info(str(i["name"]+ data["message"]))

@@ -8,6 +8,7 @@ mysCookie = ''
 """
 mysVersion = "2.34.1"
 salt = "z8DRIUjNDT7IT5IZXvrUAxyupA1peND9"  # 米游社2.34.1版本安卓客户端salt值
+salt2 = "t0qEgfub6cvueAPgR5m9aQWWVciEer7v" #这个给签到用
 client_type = "2"  # 1:ios 2:android
 
 """
@@ -15,7 +16,7 @@ api
 """
 cookieUrl = "https://webapi.account.mihoyo.com/Api/cookie_accountinfo_by_loginticket?login_ticket={}"
 cookieUrl2 = "https://api-takumi.mihoyo.com/auth/api/getMultiTokenByLoginTicket?login_ticket={}&token_types=3&uid={}"
-signUrl = "https://bbs-api.mihoyo.com/apihub/sapi/signIn?gids={}"  # post
+signUrl = "https://bbs-api.mihoyo.com/apihub/app/api/signIn"  # post
 listUrl = "https://bbs-api.mihoyo.com/post/api/getForumPostList?forum_id={}&is_good=false&is_hot=false&page_size=20&sort_type=1"
 detailUrl = "https://bbs-api.mihoyo.com/post/api/getPostFull?post_id={}"
 shareUrl = "https://bbs-api.mihoyo.com/apihub/api/getShareConf?entity_id={}&entity_type=1"
@@ -54,5 +55,17 @@ gameList = [
         "forumId": "34",
         "name": "大别野",
         "url": "https://bbs.mihoyo.com/dby/"
+    },
+    {
+    "id": "6",
+    "forumId": "52",
+    "name": "崩坏：星穹铁道",
+    "url": "https://bbs.mihoyo.com/sr/"
+    },
+    {
+    "id": "8",
+    "forumId": "57",
+    "name": "绝区零",
+    "url": "https://bbs.mihoyo.com/zzz/"
     }
 ]
