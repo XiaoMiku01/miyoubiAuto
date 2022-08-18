@@ -55,5 +55,17 @@ gameList = [
         "forumId": "34",
         "name": "大别野",
         "url": "https://bbs.mihoyo.com/dby/"
+    },
+    {
+    "id": "6",
+    "forumId": "52",
+    "name": "崩坏：星穹铁道",
+    "url": "https://bbs.mihoyo.com/sr/"
+    },
+    {
+    "id": "8",
+    "forumId": "57",
+    "name": "绝区零",
+    "url": "https://bbs.mihoyo.com/zzz/"
     }
 ]
